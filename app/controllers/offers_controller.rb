@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_manufacturer
   # GET /offers
   # GET /offers.json
   def index
@@ -65,6 +65,10 @@ class OffersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def set_manufacturer
+      @manufacturer = Manufacturer.find_by(params[:manufacturer_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,6 +5,7 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
+    # binding.pry-remote
     @batches = Batch.all
   end
 
