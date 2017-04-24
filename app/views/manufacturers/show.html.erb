@@ -1,10 +1,30 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @manufacturer.name %>
 </p>
-
+<div>
+<h2>Active Batches</h2>
+<tb>
+<%#put in all active batches%>
+<th> Description</th>
+<th> Current highest </th>
+<th> Expiry </th>
+</tb>
+</div>
+<div>
+<h2> Expired Batches</h2>
+<tb>
+<%# put in all expired batches%>
+<th> Description</th>
+<th> Winning w/saler</th>
+<th> Amount</th>
+<th> Date Completed </th>
+</tb>
+</div>
+<br>
 <%# need to make two tables 1 is for active batches- 2nd is for expired batches%>
 
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
