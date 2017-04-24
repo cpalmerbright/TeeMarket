@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: one
+  quantity: 1
+  fabric: MyString
+  color: MyString
+
+two:
+  manufacturer: two
+  quantity: 1
+  fabric: MyString
+  color: MyString

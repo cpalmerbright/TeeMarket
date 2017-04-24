@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  batch: one
+  wholesaler: one
+  amount: 1
+  accepted: false
+  ignored: false
+
+two:
+  batch: two
+  wholesaler: two
+  amount: 1
+  accepted: false
+  ignored: false

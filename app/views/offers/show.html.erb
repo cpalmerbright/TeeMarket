@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Batch:</strong>
+  <%= @offer.batch %>
+</p>
+
+<p>
+  <strong>Wholesaler:</strong>
+  <%= @offer.wholesaler %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @offer.amount %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @offer.accepted %>
+</p>
+
+<p>
+  <strong>Ignored:</strong>
+  <%= @offer.ignored %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>
