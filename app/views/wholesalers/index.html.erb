@@ -13,10 +13,7 @@
   <tbody>
     <% @wholesalers.each do |wholesaler| %>
       <tr>
-        <td><%= wholesaler.name %></td>
-        <td><%= link_to 'Show', wholesaler %></td>
-        <td><%= link_to 'Edit', edit_wholesaler_path(wholesaler) %></td>
-        <td><%= link_to 'Destroy', wholesaler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to wholesaler.name, wholesaler %></td>
       </tr>
     <% end %>
   </tbody>
