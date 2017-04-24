@@ -1,6 +1,7 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_manufacturer
+  
   # GET /batches
   # GET /batches.json
   def index
@@ -65,6 +66,10 @@ class BatchesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
       @batch = Batch.find(params[:id])
+    end
+
+    def set_manufacturer
+      @manufacturer = Manufacturer.find_by(params[:manufacturer_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
