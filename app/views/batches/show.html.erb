@@ -20,5 +20,7 @@
   <%= @batch.color %>
 </p>
 
-<%= link_to 'Edit', edit_batch_path(@batch) %> |
-<%= link_to 'Back', batches_path %>
+<%= link_to 'Edit', edit_manufacturer_batch_path(@batch) %> |
+<%= link_to 'Back', manufacturer_batches_path(@manufacturer) %>
+<%= link_to 'Send Batch to Wholesalers', new_manufacturer_batch_offer_path(@manufacturer, @batch) %>
+
