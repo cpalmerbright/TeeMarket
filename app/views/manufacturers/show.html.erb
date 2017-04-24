@@ -5,5 +5,8 @@
   <%= @manufacturer.name %>
 </p>
 
+<%# need to make two tables 1 is for active batches- 2nd is for expired batches%>
+
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
-<%= link_to 'Back', manufacturers_path %>
+<%= link_to 'Back', manufacturers_path %> |
+<%= link_to 'Delete', @manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %>
