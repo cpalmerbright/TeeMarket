@@ -14,4 +14,8 @@ class Batch < ApplicationRecord
   def time_remaining
     distance_of_time_in_words(7*24*60*60 - time_elapsed)
   end
+
+  def description
+    "x#{quantity} - #{fabric}, #{color}"
+  end
 end
