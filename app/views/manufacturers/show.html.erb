@@ -21,8 +21,14 @@
     <% if !batch.expired? %>
       <tr>
         <td><%= batch.description %></td>
-        <td><%= "highest current offer goes here, wholesaler and amount" %></td>
-        <td><%= "batch.expiry" %></td>
+        <td>
+          <%if batch.highest_current_offer%>
+            $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
+          <%else%>
+            There are no current offers for this batch.
+          <%end%>
+        </td>
+        <td><%= batch.time_remaining %></td>
       </tr>
     <%end%>
   <%end%>
@@ -45,8 +51,8 @@
     <% if batch.expired? %>
        <tr>
        <td><%= batch.description %></td>
-       <td><%= "this wholesaler won" %></td>
-       <td><%= "they paid this much" %></td>
+       <td><%= batch.accepted_offer.name %></td>
+       <td><%= batch.accepted_offer.amount %></td>
        <td><%= "It was completed on this day"%></td>
        </tr>
     <% end %>

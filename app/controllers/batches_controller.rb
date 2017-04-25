@@ -1,7 +1,7 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
   before_action :set_manufacturer
-  
+
   # GET /batches
   # GET /batches.json
   def index
@@ -30,7 +30,7 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
+        format.html { redirect_to [@batch.manufacturer, @batch], notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new }

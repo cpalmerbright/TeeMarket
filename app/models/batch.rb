@@ -1,3 +1,7 @@
+
+require 'action_view'
+include ActionView::Helpers::DateHelper
+
 class Batch < ApplicationRecord
   belongs_to :manufacturer
   has_many :offers
@@ -17,5 +21,13 @@ class Batch < ApplicationRecord
 
   def description
     "x#{quantity} - #{fabric}, #{color}"
+  end
+
+  def highest_current_offer
+    offers.order(amount: :desc).first
+  end
+
+  def accepted_offer
+    offers.where(accepted: true).first
   end
 end
