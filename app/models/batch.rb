@@ -24,6 +24,6 @@ class Batch < ApplicationRecord
   end
 
   def highest_current_offer
-    offers.first
+    offers.order(amount: :desc).first
   end
 end
