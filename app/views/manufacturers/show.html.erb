@@ -7,22 +7,52 @@
 </p>
 <div>
 <h2>Active Batches</h2>
-<tb>
+<table>
 <%#put in all active batches%>
-<th> Description</th>
-<th> Current highest </th>
-<th> Expiry </th>
-</tb>
+<thead>
+  <tr>
+    <th> Description</th>
+    <th> Current highest </th>
+    <th> Expiry </th>
+  </tr>
+</thead>
+ <tbody>
+    <% @manufacturer.batches.each do |batch| %>
+    <% if !batch.expired? %>
+      <tr>
+        <td><%= batch.description %></td>
+        <td><%= "highest current offer goes here, wholesaler and amount" %></td>
+        <td><%= "batch.expiry" %></td>
+      </tr>
+    <%end%>
+  <%end%>
+  </tbody>
+</table>
 </div>
 <div>
 <h2> Expired Batches</h2>
-<tb>
-<%# put in all expired batches%>
-<th> Description</th>
-<th> Winning w/saler</th>
-<th> Amount</th>
-<th> Date Completed </th>
-</tb>
+<table>
+<thead>
+<tr>
+  <th> Description</th>
+  <th> Winning w/saler</th>
+  <th> Amount</th>
+  <th> Date Completed </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @manufacturer.batches.each do |batch| %>
+    <% if batch.expired? %>
+       <tr>
+       <td><%= batch.description %></td>
+       <td><%= "this wholesaler won" %></td>
+       <td><%= "they paid this much" %></td>
+       <td><%= "It was completed on this day"%></td>
+       </tr>
+    <% end %>
+  <%end%>
+   </tbody>
+</table>
 </div>
 <br>
 <%# need to make two tables 1 is for active batches- 2nd is for expired batches%>
