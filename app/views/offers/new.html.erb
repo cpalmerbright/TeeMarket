@@ -36,7 +36,7 @@
       <% @offer = @batch.offers.find_by(wholesaler_id: wholesaler.id) %>
           <tr>
             <td><%=wholesaler.name %></td>
-            <td><%= link_to 'Delete', manufacturer_batch_offer_path(@manufacturer, @batch, @offer), method: :delete, data: { wholesaler_id: wholesaler.id, confirm: 'Are you sure?' } %></td>
+            <td><%= button_to '-', manufacturer_batch_offer_path(@manufacturer, @batch, @offer), method: :delete, data: { wholesaler_id: wholesaler.id, confirm: 'Are you sure?' } %></td>
             </td>
           </tr>
       <% end %>
