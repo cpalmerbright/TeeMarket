@@ -51,8 +51,8 @@
     <% if batch.expired? %>
        <tr>
        <td><%= batch.description %></td>
-       <td><%= "this wholesaler won" %></td>
-       <td><%= "they paid this much" %></td>
+       <td><%= batch.accepted_offer.name %></td>
+       <td><%= batch.accepted_offer.amount %></td>
        <td><%= "It was completed on this day"%></td>
        </tr>
     <% end %>

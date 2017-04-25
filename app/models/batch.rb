@@ -26,4 +26,8 @@ class Batch < ApplicationRecord
   def highest_current_offer
     offers.order(amount: :desc).first
   end
+
+  def accepted_offer
+    offers.where(accepted: true).first
+  end
 end
