@@ -12,7 +12,16 @@ Batch.delete_all
 Offer.delete_all
 
 a = Manufacturer.create(name: "Amy")
+d = Manufacturer.create(name: "Danny")
+e = Manufacturer.create(name: "Emily")
+
+
 b = Wholesaler.create(name: "Billy")
+f = Wholesaler.create(name: "Frank")
+g = Wholesaler.create(name: "Gemma")
+h = Wholesaler.create(name: "Harry")
+i = Wholesaler.create(name: "Ian")
+
 
 c = Batch.new
 c.quantity = 20
@@ -21,7 +30,14 @@ c.fabric = 'Cotton'
 c.manufacturer = a
 c.save
 
+j = Batch.create(quantity: 50,
+                 color: 'White',
+                 fabric: 'Polycotton',
+                 manufacturer: d)
+
+
 d = Offer.new
 d.wholesaler = b
 d.batch = c
 d.save
+

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   resources :manufacturers do
     resources :batches do
-      resources :offers, only: [:new, :create, :index]
+      resources :offers, only: [:new, :create, :index, :destroy]
     end
     resources :offers, only: [:index], controller: 'manufacturers/offers'
   end
