@@ -50,7 +50,7 @@
   <% @manufacturer.batches.each do |batch| %>
     <% if batch.expired? %>
        <tr>
-       <td><%= batch.description %></td>
+       <td><%= batch.description %></td>git
        <td><%= batch.accepted_offer.name %></td>
        <td><%= batch.accepted_offer.amount %></td>
        <td><%= "It was completed on this day"%></td>
