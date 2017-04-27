@@ -16,6 +16,8 @@ class Batch < ApplicationRecord
     time_elapsed >= 7*24*60*60
   end
 
+
+
   def time_elapsed
     Time.now.utc - created_at
   end

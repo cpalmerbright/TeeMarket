@@ -37,6 +37,7 @@ class ManufacturersController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /manufacturers/1
   # PATCH/PUT /manufacturers/1.json
   def update
