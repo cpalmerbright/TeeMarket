@@ -19,6 +19,28 @@
   <strong>Color:</strong>
   <%= @batch.color %>
 </p>
+ <%#show all offers on this batch
+ wholesaler name  amount updated at%>
+<h2>Offers</h2>
+<table>
+<thead>
+  <tr>
+    <th> Wholesaler</th>
+    <th> Amount</th>
+    <th> Date Updated</th>
+  </tr>
+</thead>
+ <tbody>
+    <% @batch.offers.each do |batch_offer| %>
+        <tr>
+        <td><%= batch_offer.wholesaler.name %></td>
+        <td> <%= batch_offer.amount%>
+        <td><%= batch_offer.updated_at %></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_manufacturer_batch_path(@batch) %> |
 <%= link_to 'Back', manufacturer_batches_path(@manufacturer) %>
