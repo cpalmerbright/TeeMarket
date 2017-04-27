@@ -12,6 +12,7 @@ class BatchesController < ApplicationController
   # GET /batches/1
   # GET /batches/1.json
   def show
+
   end
 
   # GET /batches/new
