@@ -6,16 +6,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= link_to "Manufacturers", manufacturers_path %>
-    <%= link_to "Batches", batches_path %>
-    <%= link_to "Wholesalers", wholesalers_path %>
-    <% if @manufacturer %>
-        <hr>
-        <%= link_to @manufacturer.name, manufacturer_path(@manufacturer) %>
-        <%= link_to 'Batches', manufacturer_batches_path(@manufacturer) %>
-
-    <% end %>
-
+    <div class="hat">
+      <%= link_to "Manufacturers", manufacturers_path %>
+      <%= link_to "Batches", batches_path %>
+      <%= link_to "Wholesalers", wholesalers_path %>
+    </div>
   </head>
 
   <body>
