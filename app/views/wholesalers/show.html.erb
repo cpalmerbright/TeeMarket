@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to offer.batch.description, edit_wholesaler_offer_path(offer.wholesaler, offer) %></td>
         <td>
-          <%= offer.amount ? offer.amount : '$0' %></td>
+          <%= offer.amount ? '$' + offer.amount.to_s : '$0' %></td>
         <td><%= offer.batch.expired? ? "Batch expired" : offer.batch.time_remaining %></td>
       </tr>
     <% end %>
