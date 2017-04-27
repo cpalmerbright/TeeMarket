@@ -24,9 +24,9 @@
         <td><%= batch.color %></td>
         <td><%= batch.expired? ? "Expired": batch.time_remaining %> </td>
         <td><%= batch.highest_current_offer.nil? ? 'No offers made': '$' + batch.highest_current_offer.amount.to_s %></td>
-        <td><%= link_to 'Show', manufacturer_batch_path(@manufacturer, batch) %></td>
-        <td><%= link_to 'Edit', edit_manufacturer_batch_path(@manufacturer, batch) %></td>
-        <td><%= link_to 'Destroy', manufacturer_batch_path(@manufacturer, batch), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', manufacturer_batch_path(batch.manufacturer, batch) %></td>
+        <td><%= link_to 'Edit', edit_manufacturer_batch_path(batch.manufacturer, batch) %></td>
+        <td><%= link_to 'Destroy', manufacturer_batch_path(batch.manufacturer, batch), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
