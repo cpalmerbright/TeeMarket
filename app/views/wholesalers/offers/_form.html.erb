@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :wholesaler_id %>
-    <%= f.text_field :wholesaler_id %>
+    <%= @offer.wholesaler.name %>
   </div>
 
   <div class="field">
@@ -26,13 +26,9 @@
     <%= f.number_field :amount %>
   </div>
 
-  <div class="field">
-    <%= f.label :accepted %>
-    <%= f.check_box :accepted %>
-  </div>
 
   <div class="field">
-    <%= f.label :ignored %>
+    <%= f.label :ignore %>
     <%= f.check_box :ignored %>
   </div>
 
