@@ -72,3 +72,8 @@ body {
     margin: auto;
     max-width: 960px;
 }
+
+h2, a {
+    padding-left: 30px;
+
+}
