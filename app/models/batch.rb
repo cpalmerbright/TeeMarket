@@ -7,6 +7,12 @@ class Batch < ApplicationRecord
   has_many :offers
   has_many :wholesalers, through: :offers
 
+
+  def self.not_expired
+    where("created_at < ?", Time.now.utc - 7.days)
+  end
+
+
   def expired?
     time_elapsed >= 7*24*60*60
   end
