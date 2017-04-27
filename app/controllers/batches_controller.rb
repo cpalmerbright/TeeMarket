@@ -28,6 +28,7 @@ class BatchesController < ApplicationController
   def create
     @batch = Batch.new(batch_params)
     @batch.manufacturer_id = @manufacturer.id
+
     respond_to do |format|
       if @batch.save
         format.html { redirect_to [@batch.manufacturer, @batch], notice: 'Batch was successfully created.' }
@@ -67,7 +68,6 @@ class BatchesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
       @batch = Batch.find(params[:id])
-
     end
 
     def set_manufacturer
