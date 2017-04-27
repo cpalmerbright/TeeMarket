@@ -27,7 +27,7 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
-
+    @batch.manufacturer_id = @manufacturer.id
     respond_to do |format|
       if @batch.save
         format.html { redirect_to [@batch.manufacturer, @batch], notice: 'Batch was successfully created.' }
@@ -70,7 +70,7 @@ class BatchesController < ApplicationController
     end
 
     def set_manufacturer
-      @manufacturer = Manufacturer.find_by(params[:manufacturer_id])
+      @manufacturer = Manufacturer.find_by(id: params[:manufacturer_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
