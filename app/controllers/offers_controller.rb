@@ -15,8 +15,8 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
+    set_wholesalers
     @offer = Offer.new
-    set_wh
   end
 
   # GET /offers/1/edit
