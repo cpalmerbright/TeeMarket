@@ -2,6 +2,7 @@ class OffersController < ApplicationController
   before_action :set_batch
   before_action :set_manufacturer
   before_action :set_wholesaler
+  before_action :set_wholesalers
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   # GET /offers
   # GET /offers.json
@@ -33,7 +34,7 @@ class OffersController < ApplicationController
         format.html { redirect_to :back, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @offer.errors, status: :unprocessable_entity }
       end
     end
@@ -89,6 +90,7 @@ class OffersController < ApplicationController
     end
     @unselected_wholesalers = Wholesaler.all - @selected_wholesalers
   end
+  
   # Never trust parameters from the scary internet, only allow the white list through.
   def offer_params
     params.require(:offer).permit(:batch_id, :wholesaler_id, :amount, :accepted, :ignored)

@@ -14,10 +14,7 @@
           <tr>
             <td><%=wholesaler.name %></td>
             <td><%= @batch.wholesaler_distance(wholesaler).round(1) %></td>
-            <td><%= button_to '+',
-                              {:controller => "offers", :action => "create",
-                               :offer => {:batch_id => @batch.id, :wholesaler_id => wholesaler.id}},
-                              :method=>:post  %></td>
+            <td><%= button_to '+', action: :create, params: {:offer => {:batch_id => @batch.id, :wholesaler_id => wholesaler.id, amount: 0}} %></td>
           </tr>
       <% end %>
       </tbody>
