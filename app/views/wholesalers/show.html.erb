@@ -10,23 +10,20 @@
   <thead>
     <tr>
       <th> Description</th>
-      <th> Current highest </th>
+      <th> Amount </th>
       <th> Expiry </th>
     </tr>
   </thead>
    <tbody>
-    <% @wholesaler.batches.each do |batch| %>
-      <tr>
-        <td><%= batch.description %></td>
-        <td>
-          <% if batch.highest_current_offer %>
-            $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
-          <% else %>
-            There are no current offers for this batch.
-          <% end %>
-        </td>
-        <td><%= distance_of_time_in_words_to_now(batch.created_at + 7.days) %></td>
-      </tr>
+    <% @wholesaler.offers.each do |offer| %>
+      <% unless offer.ignored %>
+        <tr>
+          <td><%= link_to offer.batch.description, edit_wholesaler_offer_path(offer.wholesaler, offer) %></td>
+          <td>
+            <%= offer.amount ? '$' + offer.amount.to_s : '$0' %></td>
+          <td><%= offer.batch.expired? ? "Batch expired" : offer.batch.time_remaining %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

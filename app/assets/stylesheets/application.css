@@ -32,3 +32,48 @@
     /*border: 1px solid green;*/
     overflow: hidden; /* if you don't want #second to wrap below #first */
 }
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    background: #eee;
+}
+
+
+.hat {
+    background: #333;
+    color: white;
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    font-family: Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.hat a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 5px;
+    transition: all 0.2s ease;
+    border-bottom: 20px solid transparent;
+}
+.hat a:hover {
+    background: #666;
+}
+
+
+.content {
+    margin: auto;
+    max-width: 960px;
+}
+
+h1, h2, form, table, a {
+    padding-left: 30px;
+
+}

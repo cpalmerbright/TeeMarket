@@ -12,10 +12,11 @@ class Batch < ApplicationRecord
     where("created_at < ?", Time.now.utc - 7.days)
   end
 
-
   def expired?
     time_elapsed >= 7*24*60*60
   end
+
+
 
   def time_elapsed
     Time.now.utc - created_at

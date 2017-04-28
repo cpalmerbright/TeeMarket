@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :wholesalers do
     resources :batches, only: [:index]
-    resources :offers, only: [:index, :edit, :update]
+    resources :offers, only: [:index, :edit, :update], controller: 'wholesalers/offers'
   end
 
   resources :batches, only: [:index]

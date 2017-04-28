@@ -6,23 +6,25 @@
   <%= @manufacturer.name %>
 </p>
 <div>
+
 <h2>Active Batches</h2>
-<table>
-<%#put in all active batches%>
-<thead>
+<% unless @manufacturer.batches.empty? %>
+  <table>
+
+  <thead>
   <tr>
     <th> Description</th>
     <th> Current highest </th>
     <th> Expiry </th>
   </tr>
-</thead>
- <tbody>
+  </thead>
+  <tbody>
     <% @manufacturer.batches.each do |batch| %>
-    <% if !batch.expired? %>
+        <% if !batch.expired? %>
       <tr>
         <td><%= batch.description %></td>
         <td>
-          <%if batch.highest_current_offer.amount %>
+          <%if batch.highest_current_offer && batch.highest_current_offer.amount > 0 %>
             $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
           <%else%>
             There are no current offers for this batch.
@@ -33,7 +35,8 @@
     <%end%>
   <%end%>
   </tbody>
-</table>
+ </table>
+<%end%>
 </div>
 <div>
 <h2> Expired Batches</h2>
@@ -65,5 +68,5 @@
 
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
 <%= link_to 'Back', manufacturers_path %> |
-<%= link_to 'Delete', @manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', @manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'New Batch', new_manufacturer_batch_path(@manufacturer) %>
