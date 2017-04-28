@@ -11,16 +11,16 @@ Wholesaler.delete_all
 Batch.delete_all
 Offer.delete_all
 
-a = Manufacturer.create(name: "Amy")
-d = Manufacturer.create(name: "Danny")
-e = Manufacturer.create(name: "Emily")
+a = Manufacturer.create(name: "Amy", latitude: 27.5, longitude: 153.0)
+d = Manufacturer.create(name: "Danny", latitude: 33.8, longitude: 151.2)
+e = Manufacturer.create(name: "Emily", latitude: 37.75, longitude: 144.8)
 
 
-b = Wholesaler.create(name: "Billy")
-f = Wholesaler.create(name: "Frank")
-g = Wholesaler.create(name: "Gemma")
-h = Wholesaler.create(name: "Harry")
-i = Wholesaler.create(name: "Ian")
+b = Wholesaler.create(name: "Billy", latitude: 33.8, longitude: 152.0)
+f = Wholesaler.create(name: "Frank", latitude: 37.5, longitude: 144.9)
+g = Wholesaler.create(name: "Gemma", latitude: 27.6, longitude: 153.0)
+h = Wholesaler.create(name: "Harry", latitude: 37.6, longitude: 144.7)
+i = Wholesaler.create(name: "Ian", latitude: 27.55, longitude: 153.4)
 
 
 c = Batch.new
