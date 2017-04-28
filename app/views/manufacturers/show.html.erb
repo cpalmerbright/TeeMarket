@@ -19,21 +19,19 @@
   </tr>
   </thead>
   <tbody>
-    <% @manufacturer.batches.each do |batch| %>
-        <% if !batch.expired? %>
+    <% @manufacturer.batches.not_expired.each do |batch| %>
       <tr>
         <td><%= batch.description %></td>
         <td>
-          <%if batch.highest_current_offer && batch.highest_current_offer.amount > 0 %>
+          <% if batch.highest_current_offer && batch.highest_current_offer.amount > 0 %>
             $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
-          <%else%>
+          <% else %>
             There are no current offers for this batch.
-          <%end%>
+          <% end %>
         </td>
         <td><%= batch.time_remaining %></td>
       </tr>
-    <%end%>
-  <%end%>
+  <% end %>
   </tbody>
  </table>
 <%end%>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :batches, only: [:index]
 
   resources :batches
-  
+
   resources :manufacturers do
     resources :batches do
       resources :offers, only: [:new, :create, :index, :destroy]

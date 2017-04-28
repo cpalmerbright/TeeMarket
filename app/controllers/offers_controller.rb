@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   before_action :set_batch
   before_action :set_manufacturer
+  before_action :set_wholesaler
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   # GET /offers
   # GET /offers.json
@@ -40,9 +41,10 @@ class OffersController < ApplicationController
 
   # PATCH/PUT /offers/1
   def update
+    #logger.debug "\n\nDEBUG: #{@wholesaler.inspect}\n\n"
     respond_to do |format|
       if @offer.update(offer_params)
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
+        format.html { redirect_to wholesaler_offer_path(@wholesaler, @offer), notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
         format.html { render :edit }
@@ -74,6 +76,10 @@ class OffersController < ApplicationController
 
   def set_manufacturer
     @manufacturer = Manufacturer.find_by(id: @batch.manufacturer_id)
+  end
+
+  def set_wholesaler
+    @wholesaler = Wholesaler.find(params[:wholesaler_id])
   end
 
   def set_wholesalers

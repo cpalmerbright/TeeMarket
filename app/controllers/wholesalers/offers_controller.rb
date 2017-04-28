@@ -1,11 +1,14 @@
 module Wholesalers
   class OffersController < ApplicationController
     before_action :set_offer, only: [:edit, :update]
+    before_action :set_wholesaler
+
+
     def edit
-      @wholesaler = @offer.wholesaler
     end
 
     def update
+      #logger.debug "\n\nDEBUG: #{@wholesaler.inspect}\n\n"
       respond_to do |format|
         if @offer.update(offer_params)
           format.html { redirect_to wholesaler_path(@offer.wholesaler), notice: 'Offer was successfully updated.' }
@@ -21,6 +24,10 @@ module Wholesalers
 
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def set_wholesaler
+      @wholesaler = Wholesaler.find(params[:wholesaler_id])
     end
 
     def offer_params
