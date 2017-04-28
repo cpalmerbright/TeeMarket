@@ -24,7 +24,7 @@
       <tr>
         <td><%= batch.description %></td>
         <td>
-          <%if batch.highest_current_offer.amount %>
+          <%if batch.highest_current_offer && batch.highest_current_offer.amount > 0 %>
             $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
           <%else%>
             There are no current offers for this batch.
