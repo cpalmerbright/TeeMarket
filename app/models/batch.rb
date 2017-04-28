@@ -6,6 +6,9 @@ class Batch < ApplicationRecord
   belongs_to :manufacturer
   has_many :offers
   has_many :wholesalers, through: :offers
+  validates :quantity, presence: true, :numericality =>  {:greater_than => 0}
+  validates :fabric, presence: true
+  validates :color, presence: true
 
 
   def self.not_expired
