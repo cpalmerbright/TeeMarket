@@ -22,7 +22,7 @@
     <% @manufacturer.batches.each do |batch| %>
         <% if !batch.expired? %>
       <tr>
-        <td><%= batch.description %></td>
+        <td><%= link_to batch.description, manufacturer_batch_path(batch.manufacturer, batch) %></td>
         <td>
           <%if batch.highest_current_offer && batch.highest_current_offer.amount > 0 %>
             $<%= batch.highest_current_offer.amount %> - <%= batch.highest_current_offer.wholesaler.name%>
@@ -53,7 +53,7 @@
   <% @manufacturer.batches.each do |batch| %>
     <% if batch.expired? %>
        <tr>
-       <td><%= batch.description %></td>git
+       <td><%= batch.description %></td>
        <td><%= batch.accepted_offer.name %></td>
        <td><%= batch.accepted_offer.amount %></td>
        <td><%= "It was completed on this day"%></td>
