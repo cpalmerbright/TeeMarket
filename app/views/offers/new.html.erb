@@ -5,6 +5,7 @@
       <thead>
       <tr>
         <th> Wholesaler </th>
+        <th> Distance (km) </th>
         <th> Add</th>
       </tr>
       </thead>
@@ -12,6 +13,7 @@
       <% @unselected_wholesalers.each do |wholesaler| %>
           <tr>
             <td><%=wholesaler.name %></td>
+            <td><%= @batch.wholesaler_distance(wholesaler) %></td>
             <td><%= button_to '+',
                               {:controller => "offers", :action => "create",
                                :offer => {:batch_id => @batch.id, :wholesaler_id => wholesaler.id}},

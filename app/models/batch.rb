@@ -1,4 +1,3 @@
-
 require 'action_view'
 include ActionView::Helpers::DateHelper
 
@@ -36,5 +35,9 @@ class Batch < ApplicationRecord
 
   def accepted_offer
     offers.where(accepted: true).first
+  end
+
+  def wholesaler_distance(wholesaler)
+    Geocoder::Calculations.distance_between([manufacturer.latitude,manufacturer.longitude], [wholesaler.latitude,wholesaler.longitude])
   end
 end
