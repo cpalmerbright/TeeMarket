@@ -12,7 +12,12 @@
       <%= link_to "Wholesalers", wholesalers_path %>
     </div>
   </head>
+  <% if @manufacturer %>
+    <hr>
+    <%= link_to @manufacturer.name, manufacturer_path(@manufacturer) %>
+    <%= link_to 'Batches', manufacturer_batches_path(@manufacturer) %>
 
+<% end %>
   <body>
     <%= yield %>
   </body>
