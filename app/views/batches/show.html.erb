@@ -35,7 +35,7 @@
         <tr>
         <td><%= batch_offer.wholesaler.name %></td>
         <td> <%= batch_offer.amount%>
-        <td><%= batch_offer.updated_at %></td>
+        <td><%= batch_offer.updated_at.to_date%></td>
       </tr>
       <%end%>
   </tbody>
