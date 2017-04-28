@@ -79,7 +79,7 @@ class OffersController < ApplicationController
   end
 
   def set_wholesaler
-    @wholesaler = Wholesaler.find(params[:wholesaler_id])
+    @wholesaler = Wholesaler.find(params[:wholesaler_id]) if params[:wholesaler_id]
   end
 
   def set_wholesalers
