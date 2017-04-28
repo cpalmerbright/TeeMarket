@@ -2,7 +2,6 @@ module Wholesalers
   class OffersController < ApplicationController
     before_action :set_offer, only: [:edit, :update]
     before_action :set_wholesaler
-    before_action :set_wholesalers
 
 
     def edit
@@ -31,15 +30,6 @@ module Wholesalers
       @wholesaler = Wholesaler.find(params[:wholesaler_id])
     end
 
-    def set_wholesalers
-      @selected_wholesalers = []       #wholesalers where the list of offer_ids includes this one
-      Wholesaler.all.each do |wholesaler|
-        @selected_wholesalers << wholesaler if wholesaler.batch_ids.include?(@batch.id)
-      end
-      @unselected_wholesalers = Wholesaler.all - @selected_wholesalers
-    end
-
-    # Never tr
     def offer_params
       params.require(:offer).permit(:batch_id, :wholesaler_id, :amount, :accepted, :ignored)
     end
